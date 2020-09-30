@@ -4,7 +4,7 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && apt-get clean && apt-get update && apt-get -y upgrade
 RUN apt-get install -y curl wget m4 autoconf make gcc g++ wget git libxml2 libxml2-dev zlib1g-dev
-RUN apt-get install -y php php-dev php-gd php-redis php-mysql php-zip php-curl php-mbstring php-bcmath
+RUN apt-get install -y php php-dev php-gd php-redis php-mysql php-zip php-curl php-mbstring php-bcmath php-imap php-mailparse
 RUN wget https://mirrors.aliyun.com/composer/composer.phar && mv composer.phar /usr/local/bin/composer && \
             chmod +x /usr/local/bin/composer && \
             composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
